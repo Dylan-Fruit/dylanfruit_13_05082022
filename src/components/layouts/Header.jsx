@@ -1,15 +1,65 @@
 import React from "react";
 import argentBankLogo from "../../assets/images/argentBankLogo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUserCircle,
-  faRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  updateFirstName,
+  updateLastName,
+  updateUserName,
+  updatePassword,
+  updateUserToken,
+} from "../../features/userData.slice";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
-  return <div></div>;
+  const firstName = useSelector((state) => state.userData.firstName);
+  const rememberMe = useSelector((state) => state.userData.rememberMe);
+  const dispatch = useDispatch();
+
+  let location = useLocation();
+
+  function handleSignOut() {
+    dispatch(updateFirstName(""));
+    dispatch(updateLastName(""));
+    dispatch(updateUserToken(""));
+    if (!rememberMe) {
+      dispatch(updateUserName(""));
+      dispatch(updatePassword(""));
+    }
+  }
+
+  return (
+    <div className="header">
+      <nav className="header-main-nav">
+        <NavLink to="/">
+          <img src={argentBankLogo} alt="Logo Argent Bank" />
+        </NavLink>
+        <div
+          className={
+            location.pathname !== "/user"
+              ? "header-main-nav-profile"
+              : "header-main-nav-test"
+          }
+        >
+          <i className="fa fa-user-circle" />
+          {location.pathname === "/user" && <p>{firstName}</p>}
+
+          {location.pathname === "/user" ? (
+            <div className="sign-out">
+              <i className="fa-right-from-bracket" />
+              <NavLink to="/">
+                <p onClick={handleSignOut}>Sign Out</p>
+              </NavLink>
+            </div>
+          ) : (
+            <NavLink to="/login">
+              <p>Sign In</p>
+            </NavLink>
+          )}
+        </div>
+      </nav>
+    </div>
+  );
 };
 
 export default Header;
