@@ -1,0 +1,84 @@
+.user {
+  &-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .main {
+      background-color: $seventh-color;
+      flex: 1;
+    }
+    .account {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid $fifth-color;
+      background-color: $sixth-color;
+      width: 80%;
+      margin: 0 auto;
+      padding: 1.5rem;
+      box-sizing: border-box;
+      text-align: left;
+      margin-bottom: 2rem;
+      &-title,
+      &-amount,
+      &-amount-description {
+        color: $first-color;
+        margin: 0;
+      }
+      &-title {
+        font-size: 1rem;
+        font-weight: normal;
+        padding: 0;
+      }
+      &-amount {
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+      .transaction-button {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        border-color: $third-color;
+        background-color: $third-color;
+        color: $sixth-color;
+      }
+    }
+  }
+  &-name {
+    margin-bottom: 10px;
+  }
+  &-header {
+    text-align: center;
+    color: $sixth-color;
+    margin: 2rem 0;
+    .edit-button {
+      border-color: $third-color;
+      background-color: $third-color;
+      color: $sixth-color;
+      font-weight: bold;
+      padding: 10px;
+    }
+    .user-form {
+      margin: auto;
+      width: 500px;
+      input {
+        width: 43%;
+        margin: 10px 5px;
+        height: 30px;
+        padding-left: 10px;
+      }
+      button {
+        border-color: $third-color;
+        background-color: $third-color;
+        color: $sixth-color;
+        font-weight: bold;
+        padding: 10px;
+        width: 25%;
+        margin: 10px 5px;
+      }
+    }
+  }
+}

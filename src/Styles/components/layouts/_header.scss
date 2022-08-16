@@ -13,6 +13,22 @@
         color: $first-color;
       }
     }
+    &-signout {
+      display: flex;
+      gap: 10px;
+      color: $first-color;
+      font-weight: bold;
+      .sign-out {
+        display: flex;
+      }
+      a {
+        color: $first-color;
+      }
+      .sign-out,
+      p {
+        margin-right: 0.5rem;
+      }
+    }
   }
   img {
     max-width: 100%;

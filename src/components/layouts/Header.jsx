@@ -36,17 +36,17 @@ const Header = () => {
         </NavLink>
         <div
           className={
-            location.pathname !== "/user"
+            location.pathname !== "/profile"
               ? "header-main-nav-profile"
-              : "header-main-nav-test"
+              : "header-main-nav-signout"
           }
         >
           <i className="fa fa-user-circle" />
-          {location.pathname === "/user" && <p>{firstName}</p>}
+          {location.pathname === "/profile" && <p>{firstName}</p>}
 
-          {location.pathname === "/user" ? (
+          {location.pathname === "/profile" ? (
             <div className="sign-out">
-              <i className="fa-right-from-bracket" />
+              <i className="fa fa-sign-out" />
               <NavLink to="/">
                 <p onClick={handleSignOut}>Sign Out</p>
               </NavLink>

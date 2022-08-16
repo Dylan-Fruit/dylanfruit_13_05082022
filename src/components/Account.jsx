@@ -8,6 +8,9 @@ const Account = ({ title, amount, amountDesc }) => {
         <p className="account-amount">{amount}</p>
         <p className="account-amount-description">{amountDesc}</p>
       </div>
+      <div className="account-content-wrapper cta">
+        <button className="transaction-button">View transactions</button>
+      </div>
     </section>
   );
 };
