@@ -5,12 +5,53 @@
   .main {
     background-color: $seventh-color;
     flex: 1;
-    .sign-in-content {
-      background-color: $sixth-color;
-      width: 300px;
-      margin: 0 auto;
-      margin-top: 3rem;
-      padding: 2rem;
+    .sign-in {
+      &-content {
+        background-color: $sixth-color;
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 3rem;
+        padding: 2rem;
+        color: $first-color;
+        i {
+          display: flex;
+          justify-content: center;
+        }
+        h1 {
+          text-align: center;
+          margin: 19.92px 0;
+        }
+        button {
+          display: block;
+          width: 100%;
+          padding: 8px;
+          font-size: 1.1rem;
+          font-weight: bold;
+          margin-top: 1rem;
+          border-color: $third-color;
+          background-color: $third-color;
+          color: $sixth-color;
+        }
+      }
+      &-input {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin-bottom: 1rem;
+        label {
+          font-weight: bold;
+        }
+        input {
+          padding: 5px;
+          font-size: 1.2rem;
+        }
+      }
+      &-rememberMe-input {
+        display: flex;
+        label {
+          margin-left: 0.25rem;
+        }
+      }
     }
   }
 }

@@ -33,6 +33,7 @@ const Header = () => {
       <nav className="header-main-nav">
         <NavLink to="/">
           <img src={argentBankLogo} alt="Logo Argent Bank" />
+          <h1 className="sr-only">Argent-Bank</h1>
         </NavLink>
         <div
           className={

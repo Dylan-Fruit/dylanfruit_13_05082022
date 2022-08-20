@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/layouts/Footer";
 import Header from "../components/layouts/Header";
 import {
@@ -8,16 +9,16 @@ import {
   updateUserToken,
   updateRememberMe,
 } from "../features/userData.slice";
-import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const userName = useSelector((state) => state.userData.userName);
   const password = useSelector((state) => state.userData.password);
   const rememberMe = useSelector((state) => state.userData.rememberMe);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
-    //e.preventDefault();
+    e.preventDefault();
     fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
       headers: {
@@ -33,11 +34,18 @@ const Login = () => {
       .then((data) => {
         if (data.status === 200) {
           dispatch(updateUserToken(data.body.token));
+          navigate("/profile");
         }
       })
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  function handleKeyPress(e) {
+    if (e.key === "Enter") {
+      handleSubmit(e);
+    }
   }
 
   return (
@@ -47,7 +55,7 @@ const Login = () => {
         <section className="sign-in-content">
           <i className="fa fa-user-circle" />
           <h1>Sign In</h1>
-          <form className="sign-in-form">
+          <form className="sign-in-form" onKeyPress={handleKeyPress}>
             <div className="sign-in-input">
               <label htmlFor="username">Username</label>
               <input
@@ -75,9 +83,7 @@ const Login = () => {
               <label htmlFor="remember-me">Remember me</label>
             </div>
           </form>
-          <NavLink to="/profile">
-            <button onClick={handleSubmit}>Sign in</button>
-          </NavLink>
+          <button onClick={handleSubmit}>Sign in</button>
         </section>
       </div>
 

@@ -12,6 +12,7 @@ const Home = () => {
       <div className="main">
         <Hero />
         <section className="feature">
+          <h2 className="sr-only">Features</h2>
           {feature.map((featureimg, index) => (
             <Features
               key={index}
