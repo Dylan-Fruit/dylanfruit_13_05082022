@@ -6,17 +6,18 @@
     padding: 5px 20px;
     &-profile {
       display: flex;
-      gap: 10px;
       color: $first-color;
       font-weight: bold;
       align-items: center;
       a {
         color: $first-color;
       }
+      .fa {
+        margin-right: 0.3rem;
+      }
     }
     &-signout {
       display: flex;
-      gap: 10px;
       color: $first-color;
       font-weight: bold;
       align-items: center;
@@ -30,6 +31,9 @@
       .sign-out,
       p {
         margin-right: 0.5rem;
+      }
+      .fa {
+        margin-right: 0.3rem;
       }
     }
   }

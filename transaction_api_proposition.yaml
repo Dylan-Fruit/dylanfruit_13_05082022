@@ -1,0 +1,236 @@
+swagger: "2.0"
+info:
+  title: "Transaction API"
+  description: "Model of API for Argent Bank company in order to allow to user to see transactions, details of transactions add, modify or delete infos about it"
+  version: "1.0.0"
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - "http"
+paths:
+  /user/transactions:
+    get:
+      tags:
+        - User Transaction
+      summary: fetching user transaction
+      description: API for fetching user transactions
+      operationId: fetchingTransaction
+      consumes: 
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses: 
+      "200":
+      description: Transaction retrieved successfully
+      schema: 
+      $ref: "#/definitions/TransactionResponse"
+      "404":
+      description: Not Found
+      "500":
+      description: Internal Server Error
+      security: 
+      - Bearer: []
+  /user/transactions/{id}/details: 
+    get: 
+      tags: 
+      - User Transaction
+      summary: fetching user transactions details
+      description: API for fetching user transactions details
+      operationId: fetchingTransactionDetails
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: path
+        name: id
+        description: id of the transaction needs to be updated
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Transaction retrieved successfully
+          schema: 
+          $ref: "#/definitions/Details"
+          "400":
+            description: Invalid Fields
+
+          "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      security: 
+      - Bearer: []
+  
+  /user/transactions/{id}/category:
+    put: 
+      tags:
+      - User Transaction
+      summary: Updating transactions category
+      decription: API for updating transactions category
+      operationId: updatingCategory
+      consumes: 
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: Header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: Body 
+        name: Category
+        description: Transaction updated category
+        schema:
+          $ref: "#/definitions/Category"
+        required: true
+      - in: path
+        name: id
+        description: id of the transactions who needs to be updated
+        required: true
+        type: string
+      responses: 
+         "200":
+          description: Category updated successfully
+          schema: 
+          $ref: "#/definitions/CategoryUpdated"
+          "400":
+            description: Invalid Fields
+          "401":
+            description: UnAuthorized
+          "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      security: 
+      - Bearer: []
+  
+  /user/transactions/{id}/note:
+    put: 
+      tags:
+      - User transactions
+      summary: Updating transactions notes
+      decription: API for updating transactions noted
+      operationId: updatingNote
+      consumes: 
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: Header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: Body 
+        name: Note
+        description: Transaction updated notes
+        schema:
+          $ref: "#/definitions/Note"
+        required: true
+      - in: path
+        name: id
+        description: id of the transactions who needs to be updated
+        required: true
+        type: string
+      responses: 
+         "200":
+          description: Note updated successfully
+          schema: 
+          $ref: "#/definitions/NoteUpdated"
+          "400":
+            description: Invalid Fields
+          "401":
+            description: UnAuthorized
+          "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      security: 
+      - Bearer: []
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  Transaction:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: string
+          date:
+            type: string
+          description: 
+            type: string
+          amount: 
+            type: number
+          balance:
+            type: number
+  Details:
+    type: object
+    properties:
+      status:
+        type: integer
+      message: 
+        type: string
+      body: 
+        type: object
+        properties: 
+        id:
+          type: string
+        typeoftransaction: 
+          type: string
+        category: 
+          type: string
+        notes:
+          type: string
+  CategoryUpdated: 
+    type: object
+    properties: 
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:  
+        id: 
+          type: string
+        categoryUpdated:
+          type: string
+  NoteUpdated:
+    type: object
+    properties: 
+      status: 
+        type: integer
+      message:
+        type: string
+      body: 
+        type: object
+        properties: 
+          id: 
+            type: string
+          noteUpdated: 
+            type: string
+  Category: 
+    type: object
+    properties: 
+      category: 
+        type: string
+  Note:
+    type: object
+    properties:
+      note:
+        type: string
+          
