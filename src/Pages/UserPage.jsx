@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useNavigate } from "react-router-dom";
 import Account from "../components/Account";
 import Footer from "../components/layouts/Footer";
 import Header from "../components/layouts/Header";
@@ -16,6 +17,7 @@ const UserPage = () => {
   const userToken = useSelector((state) => state.userData.userToken);
   const nameStatus = useSelector((state) => state.userData.nameStatus);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function getData() {
     fetch("http://localhost:3001/api/v1/user/profile", {
@@ -31,10 +33,11 @@ const UserPage = () => {
         dispatch(updateFirstName(data.body.firstName));
         dispatch(updateLastName(data.body.lastName));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        navigate("/error");
+      });
   }
-
-  getData();
 
   getData();
 
