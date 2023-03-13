@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Projet 13 de la formation Développeur Front-End OpenClassrooms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ici il s'agit de l'application en ligne d'une banque qui permet à l'utilisateur de se connecter à son compte et d'y visualiser ses revenus. 
 
-## Available Scripts
+Vous pouvez avoir un aperçu du front-end du site via [ce lien](https://df-13-argentbank.netlify.app/).
 
-In the project directory, you can run:
+Pour faire fonctionner ce projet il faut dans un premier temps télécharger le contenu de ce répertoire mais également celui de [l'API qui sert de backend](https://github.com/Dylan-Fruit/Project-10-Bank-API). 
 
-### `npm start`
+Une fois les deux répertoires téléchargés, il vous faudra certains pré-requis, comme : 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.Js v12](Node.js v12)
+- [React Js](https://fr.reactjs.org)
+- [MongoDB Community Server](MongoDB Community Server)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Si ces éléments sont déjà présents, pour vérifier leurs versions vous pouvez faire ça: 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Check Node.js version
+node --version
 
-### `npm run build`
+# Check Mongo version
+mongo --version
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Une fois que tout est prêt il suffit de suivre ces instructions : 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Forker les répertoires
+- Cloner les répertoires 
+- Ouvrir le répertoire ici présent dans votre éditeur de code 
+- Ouvrir le répertoire de l'api dans votre éditeur de code et ouvrir un terminal dans celui-ci 
 
-### `npm run eject`
+dans le terminal il faut écrire ces commandes : 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Install dependencies
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Start local dev server
+npm run dev:server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Populate database with two users
+npm run populate-db
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Le serveur devrait normalement fonctionner à l'adresse http://localhost:3001 et vous avez maintenant deux utilisateurs dans la base de donnée MongoDB.
 
-## Learn More
+### Données de la base de donnée
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Une fois que le script `populate-db` est lancé, vous devez avoir deux utilisateurs dans la base de donnée: 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tony Stark
 
-### Code Splitting
+- Prénom: `Tony`
+- Nom: `Stark`
+- Email: `tony@stark.com`
+- Mot de passe: `password123`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Steve Rogers
 
-### Analyzing the Bundle Size
+- Prénom: `Steve`
+- Nom: `Rogers`
+- Email: `steve@rogers.com`
+- Mot de passe: `password456`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### Documentation de l'API 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Vous pouvez accéder à la documentation de l'API en visitant l'url suivante: http://localhost/3001/api-docs.
