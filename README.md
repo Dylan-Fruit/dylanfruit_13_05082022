@@ -8,9 +8,9 @@ Pour faire fonctionner ce projet il faut dans un premier temps télécharger le 
 
 Une fois les deux répertoires téléchargés, il vous faudra certains pré-requis, comme : 
 
-- [Node.Js v12](Node.js v12)
+- [Node.Js v12](https://nodejs.org/en/)
 - [React Js](https://fr.reactjs.org)
-- [MongoDB Community Server](MongoDB Community Server)
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
 Si ces éléments sont déjà présents, pour vérifier leurs versions vous pouvez faire ça: 
 
