@@ -1,4 +1,4 @@
-# Projet 13 de la formation Développeur Front-End OpenClassrooms
+# Projet 13 de la formation Développeur Front-End OpenClassrooms - ArgentBank
 
 Ici il s'agit de l'application en ligne d'une banque qui permet à l'utilisateur de se connecter à son compte et d'y visualiser ses revenus. 
 
